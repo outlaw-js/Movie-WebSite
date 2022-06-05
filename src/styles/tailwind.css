@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.MainDiv{
+    height:100vh ;
+    background:#FFF;
+overflow-y: auto;    
+}

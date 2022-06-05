@@ -1,0 +1,53 @@
+{
+  "name": "imdb-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@reach/dialog": "^0.17.0",
+    "@reach/visually-hidden": "^0.17.0",
+    "axios": "^0.25.0",
+    "logger": "^0.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-lazy-load-image-component": "^1.5.4",
+    "react-router-dom": "^6.2.1",
+    "react-scripts": "5.0.0",
+    "react-toastify": "^8.2.0",
+    "react-top-loading-bar": "^2.1.0",
+    "redux": "^4.1.2",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "dev": "npx tailwindcss -i ./src/styles/tailwind.css -o ./dist/css/tailwind.css ",
+    "prod": "cross-env NODE_ENV=production npx tailwindcss -i ./src/styles/tailwind.css -o ./dist/tailwindcss",
+    "start": "npm run watch:css && react-scripts start",
+    "build": "npm run watch:css && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "watch:css": "postcss src/styles/tailwind.css -o src/styles/output.css"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.6",
+    "postcss-cli": "^9.1.0",
+    "tailwindcss": "^3.0.18"
+  }
+}

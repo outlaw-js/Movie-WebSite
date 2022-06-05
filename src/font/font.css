@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'Poppins';
+  src: local(Poppins),
+         url('Poppins/PoppinsLatin-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('Poppins/PoppinsLatin-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+         url('Poppins/PoppinsLatin-Regular.ttf')  format('truetype'); /* Safari, Android, iOS */
+       font-weight: normal;
+}
