@@ -22,7 +22,7 @@ setLoading(false)
 // }
 setTimeout(() => {
 }, 5000);
-if (sessionStorage.getItem("Token")=="" ||sessionStorage.getItem("Token")== null){
+if (document.cookie=="" ||document.cookie== null){
 
   return <Login/>
  }
