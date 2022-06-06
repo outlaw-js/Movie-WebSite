@@ -7,6 +7,7 @@ import SearchComponent from "./Components/Search/SearchComponent";
 import Header from "./Components/Header/Header";
 import Login from "./Components/Login/Login";
 import context1 from "./Context/Auth";
+import { toast ,ToastContainer} from "react-toastify";
 function App() {
   const [data, setData] = useState([]);
   const [pageNo, setPageNo] = useState(1);
@@ -18,6 +19,7 @@ useEffect(() => {
 }, []);
 const [stateCart,setStateCart]= useState([]);
 const addToCart = (product)=>{
+  toast.success(`محصول ${product.title} با موفقیت اضافه شد `)
   setStateCart(current=>{
     return [...current,product]
     
@@ -29,6 +31,7 @@ const deleteFromCart=(id)=>{
   const filteredProduct = state.filter((t) => t.id !== id);
   context.tokenLogin.dataCartBasket=filteredProduct
 }
+context.tokenLogin.deleteFromCart =  deleteFromCart()
 function getData() {
   if (pageNo <= 25) {
     axios
@@ -69,8 +72,8 @@ if (document.cookie=="" ||document.cookie== null){
   
   return <Login/>
 }
-console.log(stateCart);
-console.log("context",context.tokenLogin.dataCartBasket);
+// console.log(stateCart);
+// console.log("context",context.tokenLogin.dataCartBasket);
 return (
   <>
       <div
@@ -94,10 +97,22 @@ return (
           className="MainDiv grid gap-4 grid-cols-3 grid-rows-none mobile:grid-cols-1 mobile:grid-rows-none tablet:grid-cols-2 tablet:grid-rows-none mindesk:grid-cols-3 mindesk:grid-rows-none normaldesk:grid-cols-4 normaldesk:grid-rows-none 2xl:grid-cols-4 normaldesk:grid-cols-4  2xl:grid-rows-none largedesk:grid-cols-4"
           >
           {data.map((data, i) => (
-            <Movies data={data} key={i} addToCart={addToCart} deleteFromCart={deleteFromCart} />
+            <Movies data={data} key={i} addToCart={addToCart}  />
             ))}
         </div>
       </div>
+      <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={true}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="colored"
+/>
     </>
   );
 }

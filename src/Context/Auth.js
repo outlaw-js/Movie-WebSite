@@ -1,7 +1,8 @@
 import React,{createContext} from 'react';
 export const tokenLogin= {
     haveToken:"",
-    dataCartBasket:[]
+    dataCartBasket:[],
+    deleteFromCart:()=>{}
     
 }
 const context = createContext(tokenLogin);
