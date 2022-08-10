@@ -8,17 +8,16 @@ import "./font/font.css"
 import Cart from "./Components/Cart/Cart"
 import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
-import context from "./Context/Auth";
-import {tokenLogin} from './Context/Auth'
+import {CartProvider} from "./Context/Context"
 import 'react-lazy-load-image-component/src/effects/blur.css';
 const App = React.lazy(() => import("./App"));
 const Movies = React.lazy(() => import("./Components/Movies/Movies"));
 const Movie = React.lazy(() => import("./Components/Movies/Movie"));
 ReactDOM.render(
-<context.Provider value={{tokenLogin} }>
 
     <BrowserRouter>
     <Suspense fallback={<p> Loading...</p>}>
+<CartProvider>
       <Routes>
 
         <Route path="/" element={<App />} />
@@ -28,9 +27,9 @@ ReactDOM.render(
         <Route path="/movies/:id" element={<Movie />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
+</CartProvider>
       </Suspense>
     </BrowserRouter>
-</context.Provider>
   ,
   document.getElementById("root")
 );

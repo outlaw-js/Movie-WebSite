@@ -1,37 +1,19 @@
 import axios from "axios";
-import React, { useState, useEffect, Suspense,useContext } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import Movies from "./Components/Movies/Movies";
 import "./styles/output.css";
-import Spinner from "./Components/Spinner/Spinner";
-import SearchComponent from "./Components/Search/SearchComponent";
 import Header from "./Components/Header/Header";
 import Login from "./Components/Login/Login";
-import context1 from "./Context/Auth";
-import { toast ,ToastContainer} from "react-toastify";
+import {CartContext} from "./Context/Context"
+import { ToastContainer} from "react-toastify";
 function App() {
-  const [data, setData] = useState([]);
-  const [pageNo, setPageNo] = useState(1);
-  const [isLoading, setLoading] = useState(true);
-const context = useContext(context1)
+ 
+const {pageNo,setPageNo,setLoading,movies, setMovies} = useContext(CartContext)
 useEffect(() => {
   getData();
   setLoading(false);
 }, []);
-const [stateCart,setStateCart]= useState([]);
-const addToCart = (product)=>{
-  toast.success(`محصول ${product.title} با موفقیت اضافه شد `)
-  setStateCart(current=>{
-    return [...current,product]
-    
-  })
-  context.tokenLogin.dataCartBasket.push(product)
-}
-const deleteFromCart=(id)=>{
-  const state = [...stateCart];
-  const filteredProduct = state.filter((t) => t.id !== id);
-  context.tokenLogin.dataCartBasket=filteredProduct
-}
-context.tokenLogin.deleteFromCart =  deleteFromCart()
+
 function getData() {
   if (pageNo <= 25) {
     axios
@@ -40,10 +22,10 @@ function getData() {
       if (pageNo > 1) {
         setLoading(false);
         
-        let arr = [...data, ...response.data.data];
-        setData(arr);
+        let arr = [...movies, ...response.data.data];
+        setMovies(arr);
       } else {
-        setData(response.data.data);
+        setMovies(response.data.data);
       }
     })
     .catch((error) => {
@@ -96,8 +78,8 @@ return (
           }}
           className="MainDiv grid gap-4 grid-cols-3 grid-rows-none mobile:grid-cols-1 mobile:grid-rows-none tablet:grid-cols-2 tablet:grid-rows-none mindesk:grid-cols-3 mindesk:grid-rows-none normaldesk:grid-cols-4 normaldesk:grid-rows-none 2xl:grid-cols-4 normaldesk:grid-cols-4  2xl:grid-rows-none largedesk:grid-cols-4"
           >
-          {data.map((data, i) => (
-            <Movies data={data} key={i} addToCart={addToCart}  />
+          {movies.map((data, i) => (
+            <Movies data={data} key={i}   />
             ))}
         </div>
       </div>

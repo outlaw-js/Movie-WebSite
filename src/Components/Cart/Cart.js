@@ -1,12 +1,10 @@
 import React,{useContext,useState} from 'react';
 import {Dialog,DialogOverlay,DialogContent}from "@reach/dialog"
 import VisuallyHidden from '@reach/visually-hidden';
-import context from '../../Context/Auth';
+import {CartContext} from '../../Context/Context';
 const Cart = (props) => {
   const [quantity,setQuantity] =  useState(1);
-  const cartContext = useContext(context);
-  const {dataCartBasket}= cartContext.tokenLogin
-  
+  const {cartItems,deleteFromCart} = useContext(CartContext)
     const [showDialog, setShowDialog] = React.useState(false);
     const open = () => setShowDialog(true);
     const close = () => setShowDialog(false);
@@ -20,10 +18,10 @@ const Cart = (props) => {
           <span aria-hidden>×</span>
         </button>
      
-       {dataCartBasket.map((data, i) => (
+       {cartItems.map((data, i) => (
             <div data={data} key={i}  >
               {data.title} {data.id} {data.price * quantity} <input style={{border:"1px solid black"}}onChange={(e)=>{setQuantity(e.target.value)}} type="number" />
-             <button onClick={()=>props.deleteFromCart(data.id)}>delete</button>
+             <button onClick={()=>deleteFromCart(data.id)}>delete</button>
             </div>
             ))}
       </Dialog>
