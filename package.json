@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.10.0",
     "@reach/dialog": "^0.17.0",
     "@reach/visually-hidden": "^0.17.0",
     "axios": "^0.25.0",
