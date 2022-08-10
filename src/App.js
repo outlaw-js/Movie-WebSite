@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState, useEffect,useContext } from "react";
+import React, {  useEffect,useContext } from "react";
 import Movies from "./Components/Movies/Movies";
 import "./styles/output.css";
 import Header from "./Components/Header/Header";
@@ -54,8 +54,7 @@ if (document.cookie=="" ||document.cookie== null){
   
   return <Login/>
 }
-// console.log(stateCart);
-// console.log("context",context.tokenLogin.dataCartBasket);
+
 return (
   <>
       <div

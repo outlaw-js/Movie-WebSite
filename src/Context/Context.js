@@ -25,7 +25,6 @@ export const CartProvider = props => {
         SetCartItems,
         addToCart,
         deleteFromCart,
-        quantity: 1,
         movies,
         setMovies,
         pageNo,
