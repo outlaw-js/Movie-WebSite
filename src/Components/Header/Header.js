@@ -11,7 +11,7 @@ const Header = () => {
   };
   return (
     <div
-      style={{
+      style={{position:"relative",
         width: "100%",
         background: "dodgerblue",
         height:"100px",
