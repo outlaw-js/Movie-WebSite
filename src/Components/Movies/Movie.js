@@ -1,25 +1,21 @@
 import axios from "axios";
-import React, { useEffect, useState,useContext } from "react";
+import React, { useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
-// import Spinner from "../Spinner/Spinner";
+
 import {LazyLoadImage} from 'react-lazy-load-image-component'
 import Login from "../Login/Login";
 const Movie = () => {
   const [progress, setProgress] = useState(0)
-  const [isLoading, setLoading] = useState(true);
     const [state,setState]=useState([]);
   const { id } = useParams();
   useEffect(() => {
     axios.get(`https://moviesapi.ir/api/v1/movies/${id}`).then(function(res){
       setProgress(100)
 setState(res.data)
-setLoading(false)
     })
   }, [id]);
-// if (isLoading){
-//   return <Spinner/>
-// }
+
 setTimeout(() => {
 }, 5000);
 if (document.cookie=="" ||document.cookie== null){

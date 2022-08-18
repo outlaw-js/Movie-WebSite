@@ -36,7 +36,7 @@ const focusHandler=()=>{
           key={i}
         >
          
-          <Link style={{}} to={`/movies/${item.id}`}>
+          <Link style={{width:"100%",height:"100%"}} to={`/movies/${item.id}`}>
             {item.title}
           </Link>
         </div>
@@ -47,8 +47,8 @@ const focusHandler=()=>{
   return (
     <>
      <div style={container}>
-      <div style={search} className="search"><SearchIcon/>
-      <input type="text" style={inputSearch} onChange={(e)=>{setTimeout(()=>{setState(e.target.value)},1000)}}/></div>
+      <div onClick={focusHandler} style={search} className="search"><SearchIcon/>
+      <input ref={inputRef} type="text" style={inputSearch}placeholder="search" onChange={(e)=>{setTimeout(()=>{setState(e.target.value)},1000)}}/></div>
      {state==""? "":<div style={zindexMax}>{result}</div>}
      </div>
     </>

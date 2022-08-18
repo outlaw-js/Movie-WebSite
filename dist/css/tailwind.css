@@ -466,16 +466,46 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-backdrop-sepia:  ;
 }
 
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
 .absolute {
   position: absolute;
 }
 
 .relative {
   position: relative;
-}
-
-.top-0 {
-  top: 0px;
 }
 
 .bottom-0 {
@@ -487,12 +517,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: auto;
 }
 
-.block {
-  display: block;
-}
-
 .flex {
   display: flex;
+}
+
+.table {
+  display: table;
 }
 
 .grid {
@@ -569,12 +599,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   text-align: center;
 }
 
-.outline {
-  outline-style: solid;
-}
-
 .blur {
   --tw-blur: blur(8px);
+  -webkit-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+          filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.filter {
   -webkit-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
           filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
@@ -595,6 +626,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
+@media (max-width: 1535px) {
+  .largedesk\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 1279px) {
   .normaldesk\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -605,7 +642,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1200px) {
   .mindesk\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -615,7 +652,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .tablet\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -625,7 +662,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .mobile\:h-full {
     height: 100%;
   }
