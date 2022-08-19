@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
@@ -20,56 +20,9 @@ import { Link } from "react-router-dom";
 import Cart from "../Cart/Cart";
 import SearchComponent from "../Search/SearchComponent";
 import { styled, alpha, createTheme } from '@mui/material/styles';
+
 const Header = (props) => {
-
-  const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginLeft: 0,
-  marginRight:"10px",
-  width: '100%',
-  [theme.breakpoints.down('md')]: {
-    marginLeft: theme.spacing(1),
-    width: '45%',
-    marginRight:"20PX"
-  },
-  [theme.breakpoints.down('ccc')]: {
-    marginLeft: theme.spacing(1),
-    width: '70%',
-    marginRight:"auto",
-  },
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: '12ch',
-      '&:focus': {
-        width: '20ch',
-      },
-    },
-  },
-}));
+ 
 
   const drawerWidth = 240;
   const navItems = [{name:"HOME",route:"/"}, {name:"LOGIN",route:"/login"}, {name:"REGISTER",route:'/register'}];
@@ -100,6 +53,7 @@ const navigate=useNavigate()
 
 
   const container = window !== undefined ? () => window().document.body : undefined;
+
   return (<>
  <Box sx={{ display: 'flex' ,direction:"ltr",height:"70px"}}>
       <AppBar component="nav" >
@@ -129,15 +83,8 @@ const navigate=useNavigate()
             ))}
         
           </Box>         
-           <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
+           
+          <SearchComponent/>
           <Cart/>
                   
         </Toolbar>
@@ -149,10 +96,10 @@ const navigate=useNavigate()
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
-            display: { xs: 'block', sm: 'none' },
+            display: { xs: 'block', ccc: 'none' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
           }}
         >
@@ -168,10 +115,8 @@ const navigate=useNavigate()
   );
 };
 Header.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
+
   window: PropTypes.func,
+
 };
 export default Header;

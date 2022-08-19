@@ -29,9 +29,9 @@ export const inputStyle = {
     fontFamily: "Poppins",
     color: "#black",
     background: "#E7E7E7",
-    marginBottom: "15px",
-    borderRadius:"3px",
-    textAlign:"center"
+    outline: "none",
+    borderRadius: "3px",
+    textAlign: "center"
 };
 export const buttonFormStyle = {
     background: "#C34C89",
@@ -47,6 +47,14 @@ export const checkDivStyle = {
     height: "40px",
     display: "flex",
     alignItems: "center",
-  }
-  export const titleForm = { fontFamily: "Poppins" ,fontSize:"50px",marginBottom:"40px"}
-  export const pushToLogOrReg={color:"#3F3F3F",fontFamily:"Poppins",cursor: "pointer"}
+}
+export const titleForm = {
+    fontFamily: "Poppins",
+    fontSize: "50px",
+    marginBottom: "40px"
+}
+export const pushToLogOrReg = {
+    color: "#3F3F3F",
+    fontFamily: "Poppins",
+    cursor: "pointer"
+}

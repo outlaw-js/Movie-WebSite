@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import css from "./search.module.css"
-import {container,inputSearch,search,zindexMax} from "./searchCss"
 const Main = () => {
  const inputRef=useRef(null)
   const [state, setState] = useState("");
@@ -46,10 +45,10 @@ const focusHandler=()=>{
 
   return (
     <>
-     <div style={container}>
-      <div onClick={focusHandler} style={search} className="search"><SearchIcon/>
-      <input ref={inputRef} type="text" style={inputSearch}placeholder="search" onChange={(e)=>{setTimeout(()=>{setState(e.target.value)},1000)}}/></div>
-     {state==""? "":<div style={zindexMax}>{result}</div>}
+     <div className={css.container}>
+      <div onClick={focusHandler} className={css.search}><SearchIcon />
+      <input ref={inputRef} type="text" className={css.inputSearch}placeholder="search" onChange={(e)=>{setTimeout(()=>{setState(e.target.value)},1000)}}/></div>
+     {state==""? "":<div className={css.zindexMax}>{result}</div>}
      </div>
     </>
   );

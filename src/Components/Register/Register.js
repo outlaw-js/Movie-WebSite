@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+
 // import "./font/font.css";
 // import Header from "./Header";
 import {
@@ -16,6 +18,8 @@ import {
   divContainerFlex,
 } from "../Login/LoginStyle";
 const Register = () => {
+  const [showPassword, setShowPassword] = useState(true);
+
   const navigate = useNavigate();
   const pushToLogin = () => {
     navigate(`/login`);
@@ -76,21 +80,27 @@ const Register = () => {
         <div style={divContainer}>
         <div style={LoginBox}>
           <h1 style={titleForm}>Register</h1>
-          <div style={{ width: "80%" }}>
+          <div style={{ marginTop:"20px", width: "80%" }}>
             <input
               placeholder="Email"
               style={inputStyle}
               onChange={(e) => setEmailUser(e.target.value)}
             ></input>
           </div>
-          <div style={{ width: "80%" }}>
-            <input
+          <div style={{ marginTop:"20px",background: "#E7E7E7",width: "80%",display:"flex",alignItems:"center",height:"55px" }}>
+          <VisibilityIcon onClick={()=>setShowPassword(!showPassword)}/>
+     
+            <input 
+            type={showPassword==false ?'password' :'text'}
               placeholder="Password"
+              onChange={(e) => {
+                setPasswordUser(e.target.value);
+              }}
               style={inputStyle}
-              onChange={(e) => setPasswordUser(e.target.value)}
-            ></input>
+            />
+          
           </div>
-          <div style={{ width: "80%" }}>
+          <div style={{  marginTop:"20px",width: "80%" }}>
             <input
               placeholder="name"
               style={inputStyle}
