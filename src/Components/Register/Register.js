@@ -18,7 +18,7 @@ import {
 } from "../Login/LoginStyle";
 
 const Register = () => {
-  const [showPassword, setShowPassword] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
   const pushToLogin = () => {
@@ -97,8 +97,11 @@ const Register = () => {
           draggable: true,
           progress: undefined,
           
-          });
-          setSubmitting(false)      });
+          })
+          setTimeout(()=>{
+
+            setSubmitting(false)
+          },3000)      });
        }}
      >
        {({

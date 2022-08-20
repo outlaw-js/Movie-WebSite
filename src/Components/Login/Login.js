@@ -16,16 +16,13 @@ import {
 } from "./LoginStyle";
 import { Formik } from "formik";
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const [token,setToken] = useState("")
   const pushToRegister = () => {
     navigate(`/register`);
   };
-  const user = { email, password };
-  const jsonUser= JSON.stringify(user)
+
 
   return (
     <>
@@ -75,10 +72,15 @@ const Login = () => {
             window.location.reload();
           }, 3000);
           
-          setSubmitting(true);
+          setSubmitting(false);
         }
       })
       .catch((error) => {
+        setTimeout(()=>{
+
+        setSubmitting(false);
+        },3000)
+
         toast.error('مشکلی پیش امده')
       });
        }}
