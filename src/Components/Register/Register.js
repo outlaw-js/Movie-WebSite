@@ -89,7 +89,6 @@ const Register = () => {
       .catch((err) => {
         toast.error('مشکلی پیش امده است', {
           position: "top-right",
-          
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -99,7 +98,6 @@ const Register = () => {
           
           })
           setTimeout(()=>{
-
             setSubmitting(false)
           },3000)      });
        }}
