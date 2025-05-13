@@ -18,10 +18,10 @@ setState(res.data)
 
 setTimeout(() => {
 }, 5000);
-if (document.cookie=="" ||document.cookie== null){
+// if (document.cookie=="" ||document.cookie== null){
 
-  return <Login/>
- }
+//   return <Login/>
+//  }
 return (
     <>
     <LoadingBar color="#f11946" height="4px" progress={progress} onLoaderFinished={() => setProgress(0)} />
